@@ -2,9 +2,9 @@ package com.example.dataSystem.dao;
 
 import java.util.List;
 
-import org.springframework.stereotype.Repository;
-
 import com.example.dataSystem.models.User;
+import org.springframework.stereotype.Repository;
+import org.springframework.transaction.annotation.Transactional;
 
 @Repository
 @Transactional
