@@ -1,14 +1,24 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="css/styles.css"><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.3.0/css/all.min.css" integrity="sha512-SzlrxWUlpfuzQ+pcUCosxcglQRNAq/DZjVsC0lE40xsADsfeQoEypE+enwcOiGjk/bSuGGKHEyjSoQ1zVisanQ==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="css/styles.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.3.0/css/all.min.css"
+      integrity="sha512-SzlrxWUlpfuzQ+pcUCosxcglQRNAq/DZjVsC0lE40xsADsfeQoEypE+enwcOiGjk/bSuGGKHEyjSoQ1zVisanQ=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
     <title>Registro de usuario</title>
   </head>
   <body>
-    <header class="header" id="header"><a class="logo" href="/administrador.html"><img src="./assets/images/icon.png" alt="web Logo"></a>
+    <header class="header" id="header">
+      <a class="logo" href="/administrador.html"
+        ><img src="./assets/images/icon.png" alt="web Logo"
+      /></a>
       <div class="topbar" id="topbar">
         <div class="toggle-menu">
           <div class="toggle-menu__icon" id="toggle-menu">
@@ -21,74 +31,164 @@
       <div class="sidebar" id="sidebar">
         <ul class="main-menu" id="main-menu">
           <li class="opcion main-menu__item">
-            <div class="container-icon"><i class="fa-solid fa-user-plus fa"></i></div><a class="main-menu__link" href="/agregar_usuario.html">Registrar usuario</a>
+            <div class="container-icon">
+              <i class="fa-solid fa-user-plus fa"></i>
+            </div>
+            <a class="main-menu__link" href="/agregar_usuario.html"
+              >Registrar usuario</a
+            >
           </li>
           <li class="opcion main-menu__item">
-            <div class="container-icon"><i class="fa-solid fa-address-card fa"></i></div><a class="main-menu__link" href="/gestionar_usuarios.html">Gestionar usuarios</a>
+            <div class="container-icon">
+              <i class="fa-solid fa-address-card fa"></i>
+            </div>
+            <a class="main-menu__link" href="/gestionar_usuarios.html"
+              >Gestionar usuarios</a
+            >
           </li>
           <li class="opcion main-menu__item">
-            <div class="container-icon"><i class="fa-solid fa-tty fa"></i></div><a class="main-menu__link" href="/capturista.html">vista-capturista</a>
+            <div class="container-icon"><i class="fa-solid fa-tty fa"></i></div>
+            <a class="main-menu__link" href="/capturista.html"
+              >vista-capturista</a
+            >
           </li>
           <li class="opcion main-menu__item">
-            <div class="container-icon"><i class="fa-solid fa-laptop fa"></i></div><a class="main-menu__link" href="/tecnico.html">vista-tecnico</a>
+            <div class="container-icon">
+              <i class="fa-solid fa-laptop fa"></i>
+            </div>
+            <a class="main-menu__link" href="/tecnico.html">vista-tecnico</a>
           </li>
           <li class="opcion main-menu__item">
-            <div class="container-icon"><i class="fa-solid fa-right-from-bracket"></i></div><a class="main-menu__link" href="/index.html">Cerar sesión</a>
+            <div class="container-icon">
+              <i class="fa-solid fa-right-from-bracket"></i>
+            </div>
+            <a class="main-menu__link" href="/index.html">Cerar sesión</a>
           </li>
         </ul>
       </div>
     </header>
     <main class="main">
       <h1 class="title">Registrar Usuario</h1>
-      <form class="form-addUsuario">
+      <form class="form-addUsuario" id="formulario_r">
         <div class="form-datosp">
           <div class="form-addUsuario__field">
-            <label class="form-addUsuario__label" for="register-name">Nombre</label>
-            <input class="form-addUsuario__input" type="text" name="username">
+            <label class="form-addUsuario__label" for="r_name_user"
+              >Nombre</label
+            >
+            <input
+              class="form-addUsuario__input"
+              id="r_name_user"
+              type="text"
+              name="username"
+            />
           </div>
           <div class="form-addUsuario__field">
-            <label class="form-addUsuario__label" for="register-email">Email</label>
-            <input class="form-addUsuario__input" id="login-email" type="email" name="email">
+            <label class="form-addUsuario__label" for="r_email_user"
+              >Email</label
+            >
+            <input
+              class="form-addUsuario__input"
+              id="r_email_user"
+              type="email"
+              name="email"
+            />
           </div>
           <div class="form-addUsuario__field">
-            <label class="form-addUsuario__label" for="register-telephone">Teléfono</label>
-            <input class="form-addUsuario__input" type="text" name="telephone">
+            <label class="form-addUsuario__label" for="r_telephone_user"
+              >Teléfono</label
+            >
+            <input
+              class="form-addUsuario__input"
+              id="r_telephone_user"
+              type="text"
+              name="telephone"
+            />
           </div>
         </div>
         <div class="formdatosU">
           <div class="form-addUsuario__field">
-            <label class="form-addUsuario__label" for="register-username">Nombre de usuario</label>
-            <input class="form-addUsuario__input" type="text" name="username">
+            <label class="form-addUsuario__label" for="r_username"
+              >Nombre de usuario</label
+            >
+            <input
+              class="form-addUsuario__input"
+              id="r_username"
+              type="text"
+              name="username"
+            />
           </div>
           <div class="form-addUsuario__field">
-            <label class="form-addUsuario__label" for="register-pasword">contraseña</label>
-            <input class="form-addUsuario__input" id="login-password" type="password" name="password">
+            <label class="form-addUsuario__label" for="register-password"
+              >contraseña</label
+            >
+            <input
+              class="form-addUsuario__input"
+              id="register-password"
+              type="password"
+              name="password"
+            />
           </div>
           <div class="form-addUsuario__select">
-            <select class="form-addUsuario__roll" id="form-addUsuario__roll" name="roll">
+            <select
+              class="form-addUsuario__roll"
+              id="form-addUsuario__roll"
+              name="r_roll"
+            >
               <option value="administrador">Administrador</option>
               <option value="capturista">Capturista</option>
               <option value="tecnico">Tecnico</option>
             </select>
           </div>
           <div class="form-addUsuario__btn" id="btnregistrar">
-            <input class="form__submit" type="submit" value="REGISTRAR" id="registrar">
+            <input
+              class="form__submit"
+              type="submit"
+              value="REGISTRAR"
+              id="registrar"
+              onclick="registrarUsuarios()"
+            />
           </div>
         </div>
       </form>
     </main>
-    <script src="js/scripts-min.js"></script>
     <footer class="footer">
       <div class="contact">
         <div class="contact-mio">
           <h5 class="contact-mio__text">Mi contacto</h5>
-          <div class="container__link"><a class="contact-mio__link" href="https://github.com/JFERN4ND0" target="_blank"><i class="fa-brands fa-github"></i></a><a class="contact-mio__link" href="mailto:ferguzva@gmail.com" target="_blank"><i class="fa-solid fa-envelope"></i></a><a class="contact-mio__link" href="https://www.linkedin.com/in/jos%C3%A9-fernando-guzm%C3%A1n-733834234/" target="_blank"><i class="fa-brands fa-linkedin"></i></a></div>
+          <div class="container__link">
+            <a
+              class="contact-mio__link"
+              href="https://github.com/JFERN4ND0"
+              target="_blank"
+              ><i class="fa-brands fa-github"></i></a
+            ><a
+              class="contact-mio__link"
+              href="mailto:ferguzva@gmail.com"
+              target="_blank"
+              ><i class="fa-solid fa-envelope"></i></a
+            ><a
+              class="contact-mio__link"
+              href="https://www.linkedin.com/in/jos%C3%A9-fernando-guzm%C3%A1n-733834234/"
+              target="_blank"
+              ><i class="fa-brands fa-linkedin"></i
+            ></a>
+          </div>
         </div>
         <div class="contact-geek">
           <h5 class="contact-geek__text">Basado en proyecto final del curso</h5>
-          <div class="container__link"><a class="contact-geek__link" href="https://youtu.be/dgF4z8FbtG0" target="_blank"><i class="fa-brands fa-youtube"></i></a></div>
+          <div class="container__link">
+            <a
+              class="contact-geek__link"
+              href="https://youtu.be/dgF4z8FbtG0"
+              target="_blank"
+              ><i class="fa-brands fa-youtube"></i
+            ></a>
+          </div>
         </div>
       </div>
     </footer>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+    <!--<script src="js/scripts-min.js"></script>-->
+    <script src="js/tables/tableUser.js"></script>
   </body>
 </html>
