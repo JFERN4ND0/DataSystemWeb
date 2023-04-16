@@ -4,8 +4,7 @@
 // });
 
 const registrarUsuarios = () => {
-  console.log("llama a la funcion");
-  const r_name_user = document.getElementById("r_name_user");
+  const r_name_user = document.getElementById("r_name_user").value;
   const r_email_user = document.getElementById("r_email_user").value;
   const r_telephone_user = document.getElementById("r_telephone_user").value;
   const r_username = document.getElementById("r_username").value;
@@ -18,23 +17,38 @@ const registrarUsuarios = () => {
     r_username,
     r_password,
   ];
-  validarDatos(arreglodatos);
 
-  const datos = {};
+  if (validarDatos(arreglodatos)) {
+    const datosU = {
+      nombre_u: r_name_user,
+      email_u: r_email_user,
+      telefono_u: r_telephone_user,
+      username: r_username,
+      password: r_password,
+      nivel: r_roll,
+      estado: "Activo",
+      registradopor: "Mi",
+    };
 
-  fetch("api/usuarios", {
-    method: "POST",
-    headers: {
-      "Content-type": "application/json",
-    },
-    body: JSON.stringify(datos),
-  })
-    .then((res) => res.json())
-    .then((data) => console.log(data));
+    fetch("api/rusuarios", {
+      method: "POST",
+      headers: {
+        Accept: "aplication/json",
+        "Content-type": "application/json",
+      },
+      body: JSON.stringify(datosU),
+    });
+    //.then((res) => console.log(res.json));
+    location.reload();
+  }
 };
 
 const validarDatos = (adatos) => {
-  adatos.forEach((dato) => {
-    if (dato == "") window.alert("Todos los campos deben estar llenos");
-  });
+  for (const dato of adatos) {
+    if (dato == "") {
+      window.alert("Todos los campos deben estar llenos");
+      return false;
+    }
+  }
+  return true;
 };
