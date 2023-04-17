@@ -10,5 +10,7 @@ public interface UsuarioDao {
     void eliminar(int id);
     
     void registrar(User usuario);
+
+    boolean verificarCredenciales(User usuario);
 }
 

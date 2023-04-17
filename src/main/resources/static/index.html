@@ -16,7 +16,7 @@
           <div class="logo-container__logo"><img class="img-logo" src="./assets/images/DS.png" alt="logo"></div>
         </div>
         <div class="form-acces-container">
-          <form class="form-acces" id="formulario" action="administrador.html">
+          <form class="form-acces" id="form_login">
             <div class="form-acces__field">
               <input class="form-acces__input" type="text" name="username" id="login-user">
             </div>
@@ -24,13 +24,15 @@
               <input class="form-acces__input" id="login-password" type="password" name="password">
             </div>
             <div class="form-acces__field" id="btnacceder">
-              <input class="form-acces__submit" type="submit" value="Acceder" id="acceder">
+              <input class="form-acces__submit" type="button" value="Acceder" id="acceder" onclick="iniciarSesion()">
             </div>
           </form>
         </div>
       </div>
     </main>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
     <script src="js/scripts-min.js"></script>
+    <script src="js/login.js"></script>
     <footer class="footer">
     </footer>
   </body>

@@ -20,7 +20,7 @@ const cargarUsuarios = () => {
   fetch("api/usuarios", {
     method: "GET",
     headers: {
-      //"Accept": "aplication/json",
+      "Accept": "application/json",
       "Content-type": "application/json",
     },
   })

@@ -16,6 +16,7 @@ public class UsuarioDaoImp implements UsuarioDao{
     private EntityManager entityManager;
 
     @Override
+    @Transactional
     public List<User> getUsuarios() {
         String query = "FROM User";
         return entityManager.createQuery(query).getResultList();
@@ -30,6 +31,17 @@ public class UsuarioDaoImp implements UsuarioDao{
     @Override
     public void registrar(User usuario) {
         entityManager.merge(usuario);
+    }
+
+    @Override
+    public boolean verificarCredenciales(User usuario) {
+        String query = "FROM User WHERE username = :username AND password = :password";
+        List<User> lista = entityManager.createQuery(query)
+                .setParameter("username", usuario.getUsername())
+                .setParameter("password", usuario.getPassword())
+                .getResultList();
+
+        return !lista.isEmpty();
     }
 
 }
