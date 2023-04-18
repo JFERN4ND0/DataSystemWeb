@@ -1,8 +1,3 @@
-// $(document).ready(function () {
-//   // const r_formulario = document.getElementById("formulario_r");
-//   // r_formulario.submit();
-// });
-
 const registrarUsuarios = () => {
   const r_name_user = document.getElementById("r_name_user").value;
   const r_email_user = document.getElementById("r_email_user").value;
@@ -33,12 +28,11 @@ const registrarUsuarios = () => {
     fetch("api/rusuarios", {
       method: "POST",
       headers: {
-        Accept: "aplication/json",
+        "Accept": "aplication/json",
         "Content-type": "application/json",
       },
       body: JSON.stringify(datosU),
     });
-    //.then((res) => console.log(res.json));
     location.reload();
   }
 };

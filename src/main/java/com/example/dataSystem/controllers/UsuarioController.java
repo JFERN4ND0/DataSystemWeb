@@ -3,7 +3,6 @@ package com.example.dataSystem.controllers;
 import com.example.dataSystem.dao.UsuarioDao;
 import com.example.dataSystem.models.User;
 
-import java.util.ArrayList;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -34,7 +33,7 @@ public class UsuarioController {
 
         return usuario;
     }
-    
+
     @RequestMapping(value = "api/usuarios", method = RequestMethod.GET)
     public List<User> getUsuarios() {
         return usuarioDao.getUsuarios();
@@ -45,12 +44,12 @@ public class UsuarioController {
         usuarioDao.registrar(usuario);
     }
 
-    /* 
-    ~   comentado porque no se requiere eliminar por la aplicación
-    */
+    /*
+     * ~ comentado porque no se requiere eliminar por la aplicación
+     */
     // @RequestMapping(value = "api/usuarios/{id}", method = RequestMethod.DELETE)
     // public void eliminarUsuario(@PathVariable int id) {
-    //     usuarioDao.eliminar(id);
+    // usuarioDao.eliminar(id);
     // }
 
     @RequestMapping(value = "usuario12")

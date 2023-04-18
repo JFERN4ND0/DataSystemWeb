@@ -5,6 +5,7 @@ import java.util.List;
 import com.example.dataSystem.models.User;
 import jakarta.persistence.EntityManager;
 import jakarta.persistence.PersistenceContext;
+import org.jetbrains.annotations.NotNull;
 import org.springframework.stereotype.Repository;
 import org.springframework.transaction.annotation.Transactional;
 
@@ -34,7 +35,7 @@ public class UsuarioDaoImp implements UsuarioDao{
     }
 
     @Override
-    public boolean verificarCredenciales(User usuario) {
+    public boolean verificarCredenciales(@NotNull User usuario) {
         String query = "FROM User WHERE username = :username AND password = :password";
         List<User> lista = entityManager.createQuery(query)
                 .setParameter("username", usuario.getUsername())
@@ -43,5 +44,4 @@ public class UsuarioDaoImp implements UsuarioDao{
 
         return !lista.isEmpty();
     }
-
 }
