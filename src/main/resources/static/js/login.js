@@ -16,8 +16,8 @@ const iniciarSesion = () => {
       "Content-type": "application/json",
     },
     body: JSON.stringify(datosU),
-  }).then((res) => console.log(res.json()));
+  }).then((res) => console.log(res));
   //.then((data) => {
-  //console.log(data);
+  console.log(datosU);
   //});
 };
