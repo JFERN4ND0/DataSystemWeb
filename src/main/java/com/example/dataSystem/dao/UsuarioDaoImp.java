@@ -1,5 +1,6 @@
 package com.example.dataSystem.dao;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import com.example.dataSystem.models.User;
@@ -11,10 +12,11 @@ import org.springframework.transaction.annotation.Transactional;
 
 @Repository
 @Transactional
-public class UsuarioDaoImp implements UsuarioDao{
+public class UsuarioDaoImp implements UsuarioDao {
 
     @PersistenceContext
     private EntityManager entityManager;
+    private User usuario;
 
     @Override
     @Transactional
@@ -35,13 +37,13 @@ public class UsuarioDaoImp implements UsuarioDao{
     }
 
     @Override
-    public boolean verificarCredenciales(@NotNull User usuario) {
+    public boolean verificarCredenciales(User usuario) {
         String query = "FROM User WHERE username = :username AND password = :password";
         List<User> lista = entityManager.createQuery(query)
                 .setParameter("username", usuario.getUsername())
                 .setParameter("password", usuario.getPassword())
                 .getResultList();
 
-        return !lista.isEmpty();
+        return !(lista.isEmpty());
     }
 }
