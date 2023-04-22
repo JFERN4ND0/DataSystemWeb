@@ -18,6 +18,6 @@ public class AuthController {
         if (usuarioDao.verificarCredenciales(usuario)) {
             return "OK";
         }
-        return "FAIL";
+        return usuario.toString();
     }
 }

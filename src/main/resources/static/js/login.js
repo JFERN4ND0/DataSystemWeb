@@ -1,13 +1,12 @@
 const iniciarSesion = () => {
   const formLogin = document.getElementById("form_login");
-  let encontrado;
+  const uname = document.getElementById("login-user").value;
+  const pss = document.getElementById("login-password").value;
 
   const datosU = {
-    username: document.getElementById("login-user").value,
-    password: document.getElementById("login-password").value,
+    username: uname,
+    password: pss,
   };
-
-  console.log(datosU);
 
   fetch("api/login", {
     method: "POST",
@@ -17,5 +16,8 @@ const iniciarSesion = () => {
     },
     body: JSON.stringify(datosU),
   })
-  .then((res) => console.log(res.text()));
+  .then((res) => {
+  const resp = res.text();
+  console.log(resp);
+  });
 };

@@ -44,6 +44,6 @@ public class UsuarioDaoImp implements UsuarioDao {
                 .setParameter("password", usuario.getPassword())
                 .getResultList();
 
-        return !(lista.isEmpty());
+        return !lista.isEmpty();
     }
 }
