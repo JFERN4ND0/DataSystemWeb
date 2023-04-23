@@ -28,7 +28,7 @@ const registrarUsuarios = () => {
     fetch("api/rusuarios", {
       method: "POST",
       headers: {
-        "Accept": "aplication/json",
+        "Accept": "application/json",
         "Content-type": "application/json",
       },
       body: JSON.stringify(datosU),

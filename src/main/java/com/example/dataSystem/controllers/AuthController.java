@@ -14,10 +14,11 @@ public class AuthController {
     private UsuarioDao usuarioDao;
 
     @RequestMapping(value = "api/login", method = RequestMethod.POST)
-    public String login(User usuario) {
+    public boolean login(@RequestBody User usuario) {
+        System.out.println(usuario.toString());
         if (usuarioDao.verificarCredenciales(usuario)) {
-            return "OK";
+            return true;
         }
-        return usuario.toString();
+        return false;
     }
 }
