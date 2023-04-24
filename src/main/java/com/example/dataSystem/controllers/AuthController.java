@@ -2,6 +2,7 @@ package com.example.dataSystem.controllers;
 
 import com.example.dataSystem.dao.UsuarioDao;
 import com.example.dataSystem.models.User;
+import com.example.dataSystem.utils.JWTUtil;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -13,12 +14,15 @@ public class AuthController {
     @Autowired
     private UsuarioDao usuarioDao;
 
+    @Autowired
+    private JWTUtil jwtUtil;
+
     @RequestMapping(value = "api/login", method = RequestMethod.POST)
-    public boolean login(@RequestBody User usuario) {
-        System.out.println(usuario.toString());
-        if (usuarioDao.verificarCredenciales(usuario)) {
-            return true;
+    public String login(@RequestBody User usuario) {
+        User userLogin = usuarioDao.obtenerUsuarioPorCredenciales(usuario);
+        if (userLogin != null) {
+            return jwtUtil.create(String.valueOf(userLogin.getId()), userLogin.getUsername());
         }
-        return false;
+        return "FAIL";
     }
 }

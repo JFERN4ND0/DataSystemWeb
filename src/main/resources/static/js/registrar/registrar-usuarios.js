@@ -33,6 +33,7 @@ const registrarUsuarios = () => {
       },
       body: JSON.stringify(datosU),
     });
+    alert("Usuario agregado con exito");
     location.reload();
   }
 };

@@ -9,16 +9,17 @@ const iniciarSesion = () => {
   fetch("api/login", {
     method: "POST",
     headers: {
-      "Accept": "application/json",
+      Accept: "application/json",
       "Content-type": "application/json",
     },
     body: JSON.stringify(datosU),
   })
-  .then((res) => {
-    if(res) {
-        window.location.href = 'administrador.html';
-    } else {
-        alert('credenciales incorrectas');
-    }
-    });
+  .then((res) => res.text())
+  .then((data) => {
+    if(data != "FAIL") {
+        localStorage.token = data;
+        localStorage.username = datosU.username;
+        window.location.href = "administrador.html";
+    } else alert("credenciales incorrectas");
+  });
 };

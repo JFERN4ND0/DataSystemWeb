@@ -4,6 +4,8 @@ import java.util.ArrayList;
 import java.util.List;
 
 import com.example.dataSystem.models.User;
+import de.mkammerer.argon2.Argon2;
+import de.mkammerer.argon2.Argon2Factory;
 import jakarta.persistence.EntityManager;
 import jakarta.persistence.PersistenceContext;
 import org.jetbrains.annotations.NotNull;
@@ -37,13 +39,18 @@ public class UsuarioDaoImp implements UsuarioDao {
     }
 
     @Override
-    public boolean verificarCredenciales(User usuario) {
-        String query = "FROM User WHERE username = :username AND password = :password";
+    public User obtenerUsuarioPorCredenciales(User usuario) {
+        String query = "FROM User WHERE username = :username";
         List<User> lista = entityManager.createQuery(query)
                 .setParameter("username", usuario.getUsername())
-                .setParameter("password", usuario.getPassword())
                 .getResultList();
 
-        return !lista.isEmpty();
+        if (lista.isEmpty()) return null;
+        String passwordHashed = lista.get(0).getPassword();
+
+        Argon2 argon2 = Argon2Factory.create(Argon2Factory.Argon2Types.ARGON2id);
+        if (argon2.verify(passwordHashed, usuario.getPassword()))
+            return lista.get(0);
+        return null;
     }
 }
