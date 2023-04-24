@@ -40,26 +40,26 @@
       <form class="form-addUsuario add-cliente">
         <div class="form-datosp">
           <div class="form-addUsuario__field">
-            <label class="form-addUsuario__label" for="register-name">Nombre</label>
-            <input class="form-addUsuario__input" type="text" name="username">
+            <label class="form-addUsuario__label" for="r_name_c">Nombre</label>
+            <input class="form-addUsuario__input" id="r_name_c" type="text" name="username">
           </div>
           <div class="form-addUsuario__field">
-            <label class="form-addUsuario__label" for="register-email">Email</label>
-            <input class="form-addUsuario__input" id="login-email" type="email" name="email">
+            <label class="form-addUsuario__label" for="r_email_c">Email</label>
+            <input class="form-addUsuario__input" id="r_email_c" type="email" name="email">
           </div>
         </div>
         <div class="formdatosU">
           <div class="form-addUsuario__field">
-            <label class="form-addUsuario__label" for="register-telephone">Teléfono</label>
-            <input class="form-addUsuario__input" type="text" name="telephone">
+            <label class="form-addUsuario__label" for="r_telephone_c">Teléfono</label>
+            <input class="form-addUsuario__input" id="r_telephone_c" type="text" name="telephone">
           </div>
           <div class="form-addUsuario__field">
-            <label class="form-addUsuario__label" for="register-username">Dirección</label>
-            <input class="form-addUsuario__input" type="text" name="username">
+            <label class="form-addUsuario__label" for="r_direction_c">Dirección</label>
+            <input class="form-addUsuario__input" id="r_direction_c" type="text" name="username">
           </div>
         </div>
         <div class="form-addUsuario__btn add-cliente__btn" id="btnregistrar">
-          <input class="form__submit" type="submit" value="REGISTRAR" id="registrar">
+          <input class="form__submit" type="button" value="REGISTRAR" id="registrarC" onclick="registrarClientes()">
         </div>
       </form>
     </main>
@@ -76,5 +76,7 @@
         </div>
       </div>
     </footer>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+    <script src="js/registrar/registrar-cliente.js"></script>
   </body>
 </html>

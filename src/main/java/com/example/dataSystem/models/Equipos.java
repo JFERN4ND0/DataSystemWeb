@@ -1,112 +1,44 @@
 package com.example.dataSystem.models;
 
+import jakarta.persistence.*;
+import lombok.EqualsAndHashCode;
+import lombok.Getter;
+import lombok.Setter;
+import lombok.ToString;
+
+@Entity
+@Table(name = "equipos")
+@ToString @EqualsAndHashCode
 public class Equipos {
+
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Getter @Setter @Column(name = "id_equipo")
+    private int id_equipo;
+    @Getter @Setter @Column(name = "id_cliente")
+    private int id_cliente;
+    @Getter @Setter @Column(name = "tipo_equipo")
     private String tipo;
+    @Getter @Setter @Column(name = "marca")
     private String marca;
+    @Getter @Setter @Column(name = "modelo")
     private String modelo;
+    @Getter @Setter @Column(name = "num_serie")
     private String num_serie;
+    @Getter @Setter @Column(name = "dia_ingreso")
     private String dia_ingreso;
+    @Getter @Setter @Column(name = "mes_ingreso")
     private String mes_ingreso;
+    @Getter @Setter @Column(name = "annio_ingreso")
     private String annio_ingreso;
+    @Getter @Setter @Column(name = "observaciones")
     private String observaciones;
+    @Getter @Setter @Column(name = "estatus")
     private String status;
+    @Getter @Setter @Column(name = "ultima_modificacion")
     private String ultima_modificacion;
+    @Getter @Setter @Column(name = "comentarios_tecnicos")
     private String comentarios_tecnico;
+    @Getter @Setter @Column(name = "revision_tecnica")
     private String revicion_tecnica;
-
-    public String getTipo() {
-        return tipo;
-    }
-
-    public void setTipo(String tipo) {
-        this.tipo = tipo;
-    }
-
-    public String getMarca() {
-        return marca;
-    }
-
-    public void setMarca(String marca) {
-        this.marca = marca;
-    }
-
-    public String getModelo() {
-        return modelo;
-    }
-
-    public void setModelo(String modelo) {
-        this.modelo = modelo;
-    }
-
-    public String getNum_serie() {
-        return num_serie;
-    }
-
-    public void setNum_serie(String num_serie) {
-        this.num_serie = num_serie;
-    }
-
-    public String getDia_ingreso() {
-        return dia_ingreso;
-    }
-
-    public void setDia_ingreso(String dia_ingreso) {
-        this.dia_ingreso = dia_ingreso;
-    }
-
-    public String getMes_ingreso() {
-        return mes_ingreso;
-    }
-
-    public void setMes_ingreso(String mes_ingreso) {
-        this.mes_ingreso = mes_ingreso;
-    }
-
-    public String getAnnio_ingreso() {
-        return annio_ingreso;
-    }
-
-    public void setAnnio_ingreso(String annio_ingreso) {
-        this.annio_ingreso = annio_ingreso;
-    }
-
-    public String getObservaciones() {
-        return observaciones;
-    }
-
-    public void setObservaciones(String observaciones) {
-        this.observaciones = observaciones;
-    }
-
-    public String getStatus() {
-        return status;
-    }
-
-    public void setStatus(String status) {
-        this.status = status;
-    }
-
-    public String getUltima_modificacion() {
-        return ultima_modificacion;
-    }
-
-    public void setUltima_modificacion(String ultima_modificacion) {
-        this.ultima_modificacion = ultima_modificacion;
-    }
-
-    public String getComentarios_tecnico() {
-        return comentarios_tecnico;
-    }
-
-    public void setComentarios_tecnico(String comentarios_tecnico) {
-        this.comentarios_tecnico = comentarios_tecnico;
-    }
-
-    public String getRevicion_tecnica() {
-        return revicion_tecnica;
-    }
-
-    public void setRevicion_tecnica(String revicion_tecnica) {
-        this.revicion_tecnica = revicion_tecnica;
-    }
 }

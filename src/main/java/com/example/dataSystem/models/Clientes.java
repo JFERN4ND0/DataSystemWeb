@@ -1,40 +1,29 @@
 package com.example.dataSystem.models;
 
+import jakarta.persistence.*;
+import lombok.EqualsAndHashCode;
+import lombok.Getter;
+import lombok.Setter;
+import lombok.ToString;
+
+@Entity
+@Table(name = "clientes")
+@ToString @EqualsAndHashCode
 public class Clientes {
+
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Getter @Setter @Column(name = "id_cliente")
+    private int id_cliente;
+    @Getter @Setter @Column(name = "nombre_cliente")
     private String nombre_c;
+    @Getter @Setter @Column(name = "mail_cliente")
     private String email_c;
+    @Getter @Setter @Column(name = "tel_cliente")
+    private String telefono_c;
+    @Getter @Setter @Column(name = "dir_cliente")
     private String direction;
+    @Getter @Setter @Column(name = "ultima_modificacion")
     private String ultima_modificacion;
 
-    public String getNombre_c() {
-        return nombre_c;
-    }
-
-    public void setNombre_c(String nombre_c) {
-        this.nombre_c = nombre_c;
-    }
-
-    public String getEmail_c() {
-        return email_c;
-    }
-
-    public void setEmail_c(String email_c) {
-        this.email_c = email_c;
-    }
-
-    public String getDirection() {
-        return direction;
-    }
-
-    public void setDirection(String direction) {
-        this.direction = direction;
-    }
-
-    public String getUltima_modificacion() {
-        return ultima_modificacion;
-    }
-
-    public void setUltima_modificacion(String ultima_modificacion) {
-        this.ultima_modificacion = ultima_modificacion;
-    }
 }
