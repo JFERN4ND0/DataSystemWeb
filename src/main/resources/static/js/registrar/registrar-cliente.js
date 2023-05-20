@@ -17,6 +17,7 @@ const registrarClientes = () => {
       email_c: r_email_c,
       telefono_c: r_telephone_c,
       direction: r_direction_c,
+      ultima_modificacion: "Mi",
     };
 
     fetch("api/rCliente", {
@@ -26,7 +27,7 @@ const registrarClientes = () => {
         "Content-type": "application/json",
       },
       body: JSON.stringify(datosC),
-    });
+    }).then((res) => console.log(res.json()));
     alert("Cliente agregado con exito");
     //location.reload();
   }

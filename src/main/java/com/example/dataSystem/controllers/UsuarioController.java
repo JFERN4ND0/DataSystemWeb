@@ -55,19 +55,4 @@ public class UsuarioController {
     // public void eliminarUsuario(@PathVariable int id) {
     // usuarioDao.eliminar(id);
     // }
-
-    @RequestMapping(value = "usuario12")
-    public User buscarUsuario() {
-        User usuario = new User();
-        usuario.setNombre_u("Lucas");
-        usuario.setEmail_u("lucasmoy@hotmail.com");
-        usuario.setTelefono_u("9514852588");
-        usuario.setUsername("LucasM");
-        usuario.setPassword("123456");
-        usuario.setNivel("Capturista");
-        usuario.setEstado("Activo");
-        usuario.setRegistradopor("Fernando");
-
-        return usuario;
-    }
 }

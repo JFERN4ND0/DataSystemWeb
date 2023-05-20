@@ -15,7 +15,7 @@ const cargarClientes = () => {
     .then((res) => res.json())
     .then((data) => {
       for (const cliente in data) {
-        const cl = `<tr><td>${data[cliente].id_cliente}</td><td>${data[cliente].nombre_c}</td></tr>`;
+        const cl = `<tr><td>${data[cliente].id_cliente}</td><td>${data[cliente].nombre_c}</td><td>${data[cliente].email_c}</td><td>${data[cliente].telefono_c}</td><td>${data[cliente].ultima_modificacion}</td></tr>`;
         listCliente += cl;
       }
       document.querySelector("#table-client tbody").outerHTML = listCliente;

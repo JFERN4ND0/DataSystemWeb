@@ -1,16 +1,15 @@
 package com.example.dataSystem.utils;
-import io.jsonwebtoken.Claims;
-import io.jsonwebtoken.JwtBuilder;
-import io.jsonwebtoken.Jwts;
-import io.jsonwebtoken.SignatureAlgorithm;
+import io.jsonwebtoken.*;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Value;
+import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
 import org.springframework.stereotype.Component;
 
 import javax.crypto.spec.SecretKeySpec;
 import javax.xml.bind.DatatypeConverter;
 import java.security.Key;
+import java.util.Collections;
 import java.util.Date;
 
 /**
@@ -19,13 +18,13 @@ import java.util.Date;
 @Component
 public class JWTUtil {
     @Value("${security.jwt.secret}")
-    private String key;
+    private static String key;
 
     @Value("${security.jwt.issuer}")
-    private String issuer;
+    private static String issuer;
 
     @Value("${security.jwt.ttlMillis}")
-    private long ttlMillis;
+    private static long ttlMillis;
 
     private final Logger log = LoggerFactory
             .getLogger(JWTUtil.class);
@@ -37,7 +36,7 @@ public class JWTUtil {
      * @param subject
      * @return
      */
-    public String create(String id, String subject) {
+    public static String create(String id, String subject) {
 
         // The JWT signature algorithm used to sign the token
         SignatureAlgorithm signatureAlgorithm = SignatureAlgorithm.HS256;
@@ -72,10 +71,15 @@ public class JWTUtil {
     public String getValue(String jwt) {
         // This line will throw an exception if it is not a signed JWS (as
         // expected)
-        Claims claims = Jwts.parser().setSigningKey(DatatypeConverter.parseBase64Binary(key))
-                .parseClaimsJws(jwt).getBody();
+        try{
+            Claims claims = Jwts.parser().setSigningKey(DatatypeConverter.parseBase64Binary(key))
+                    .parseClaimsJws(jwt).getBody();
+            return claims.getSubject();
+        } catch (JwtException e) {
+            return null;
+        }
 
-        return claims.getSubject();
+
     }
 
     /**
@@ -87,9 +91,27 @@ public class JWTUtil {
     public String getKey(String jwt) {
         // This line will throw an exception if it is not a signed JWS (as
         // expected)
-        Claims claims = Jwts.parser().setSigningKey(DatatypeConverter.parseBase64Binary(key))
-                .parseClaimsJws(jwt).getBody();
+        try {
+            Claims claims = Jwts.parser().setSigningKey(DatatypeConverter.parseBase64Binary(key))
+                    .parseClaimsJws(jwt).getBody();
+            return claims.getId();
+        } catch (JwtException e) {
+            return null;
+        }
+    }
 
-        return claims.getId();
+    public static UsernamePasswordAuthenticationToken getAuthentication(String token) {
+        try {
+            Claims claims = Jwts.parser()
+                    .setSigningKey(key.getBytes())
+                    .parseClaimsJws(token)
+                    .getBody();
+
+            String username = claims.getSubject();
+
+            return new UsernamePasswordAuthenticationToken(username, null, Collections.emptyList());
+        } catch (JwtException e) {
+            return null;
+        }
     }
 }

@@ -14,12 +14,14 @@ const iniciarSesion = () => {
     },
     body: JSON.stringify(datosU),
   })
-  .then((res) => res.text())
-  .then((data) => {
-    if(data != "FAIL") {
-        localStorage.token = data;
+  //.then((respuesta) => respuesta.text())
+  .then((res) => {
+    if(res != "FAIL") {
+        console.log(res);
+        console.log(res.text());
+        localStorage.token = res;
         localStorage.username = datosU.username;
-        window.location.href = "administrador.html";
+       window.location.href = "administrador.html";
     } else alert("credenciales incorrectas");
   });
 };

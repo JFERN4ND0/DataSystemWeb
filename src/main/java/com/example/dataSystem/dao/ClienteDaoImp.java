@@ -13,18 +13,18 @@ import java.util.List;
 public class ClienteDaoImp implements ClienteDao{
 
     @PersistenceContext
-    private EntityManager entityManager;
+    private EntityManager entityManagerC;
     private Clientes cliente;
 
     @Override
     @Transactional
     public List<Clientes> getClientes() {
         String query = "FROM Clientes";
-        return entityManager.createQuery(query).getResultList();
+        return entityManagerC.createQuery(query).getResultList();
     }
 
     @Override
     public void registrarCliente(Clientes cliente) {
-        entityManager.merge(cliente);
+        entityManagerC.merge(cliente);
     }
 }
